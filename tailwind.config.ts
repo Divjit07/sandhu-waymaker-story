@@ -57,6 +57,9 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        "waymaker-dark": "hsl(var(--waymaker-dark))",
+        "waymaker-accent": "hsl(var(--waymaker-accent))",
+        "waymaker-cyan": "hsl(var(--waymaker-cyan))",
       },
       borderRadius: {
         lg: "var(--radius)",
