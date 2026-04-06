@@ -1,16 +1,30 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useScrollProgress } from "@/hooks/useScrollProgress";
+import ScrollCanvas from "@/components/ScrollCanvas";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import EngineeringSection from "@/components/EngineeringSection";
+import FeatureSection from "@/components/FeatureSection";
+import CraftSection from "@/components/CraftSection";
+import CTASection from "@/components/CTASection";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  const { progress, frameIndex, totalFrames } = useScrollProgress();
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="relative" style={{ height: "500vh" }}>
+      <Navbar />
+      <div className="sticky top-0 h-screen w-full overflow-hidden">
+        <ScrollCanvas frameIndex={frameIndex} totalFrames={totalFrames} />
+        <div className="absolute inset-0">
+          <HeroSection progress={progress} />
+          <EngineeringSection progress={progress} />
+          <FeatureSection progress={progress} />
+          <CraftSection progress={progress} />
+          <CTASection progress={progress} />
+        </div>
+      </div>
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
