@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 
-const TOTAL_FRAMES = 240;
+const TOTAL_FRAMES = 192;
 
 export function useScrollProgress() {
   const [progress, setProgress] = useState(0);

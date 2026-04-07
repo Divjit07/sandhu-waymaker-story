@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const navLinks = ["Overview", "Craft", "Collection", "Shop"];
+const navLinks = ["Biography", "Discography", "Tour", "Shop", "Listen"];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -20,9 +20,9 @@ const Navbar = () => {
         WebkitBackdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
       }}
     >
-      <div className="text-lg md:text-xl font-bold tracking-[0.4em] uppercase text-waymaker-dark">
+      <a href="#" className="text-lg md:text-xl font-bold tracking-[0.4em] uppercase text-waymaker-dark">
         WAYMAKER
-      </div>
+      </a>
 
       <div className="hidden md:flex items-center gap-8">
         {navLinks.map((link) => (

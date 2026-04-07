@@ -3,15 +3,15 @@ interface Props {
 }
 
 const features = [
-  { label: "Premium Materials", desc: "Hand-selected fabrics" },
-  { label: "Tailored Fit", desc: "Precision construction" },
-  { label: "Bold Design", desc: "Statement silhouettes" },
+  { label: "Way Maker", desc: "Studio Album - 2022" },
+  { label: "Naveezy", desc: "Studio Album - 2023" },
+  { label: "Relentless", desc: "Extended Play - 2023" },
 ];
 
 const FeatureSection = ({ progress }: Props) => {
-  // Visible from 42% to 62%
-  const fadeIn = Math.min(Math.max((progress - 0.42) / 0.05, 0), 1);
-  const fadeOut = Math.min(Math.max((0.62 - progress) / 0.05, 0), 1);
+  // Visible from 50% to 70%
+  const fadeIn = Math.min(Math.max((progress - 0.50) / 0.05, 0), 1);
+  const fadeOut = Math.min(Math.max((0.70 - progress) / 0.05, 0), 1);
   const opacity = Math.min(fadeIn, fadeOut);
   const translateX = (1 - fadeIn) * 60;
 
@@ -26,11 +26,11 @@ const FeatureSection = ({ progress }: Props) => {
         className="mr-8 md:mr-20 max-w-md text-right"
         style={{ transform: `translateX(${translateX}px)` }}
       >
-        <p className="text-xs tracking-[0.4em] uppercase text-waymaker-accent mb-4">Engineered</p>
+        <p className="text-xs tracking-[0.4em] uppercase text-waymaker-accent mb-4">Discography</p>
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-waymaker-dark leading-tight mb-8">
-          Engineered
+          Chart-Topping
           <br />
-          for the bold.
+          Releases
         </h2>
         <div className="space-y-4">
           {features.map((f, i) => (
@@ -38,7 +38,7 @@ const FeatureSection = ({ progress }: Props) => {
               key={f.label}
               className="flex items-center justify-end gap-4"
               style={{
-                opacity: Math.min(Math.max((progress - 0.44 - i * 0.03) / 0.03, 0), 1),
+                opacity: Math.min(Math.max((progress - 0.52 - i * 0.03) / 0.03, 0), 1),
               }}
             >
               <div>
