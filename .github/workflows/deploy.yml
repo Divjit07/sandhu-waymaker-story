@@ -32,6 +32,9 @@ jobs:
       - name: Create 404.html
         run: cp dist/index.html dist/404.html
 
+      - name: List files in dist for debugging
+        run: ls -R dist
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
