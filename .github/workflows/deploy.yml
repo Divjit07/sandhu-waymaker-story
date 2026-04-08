@@ -27,13 +27,19 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build
+        run: npx vite build
 
       - name: Create 404.html
-        run: cp dist/index.html dist/404.html
+        run: |
+          if [ -d "dist" ]; then
+            cp dist/index.html dist/404.html
+          else
+            echo "Error: dist directory not found after build"
+            exit 1
+          fi
 
       - name: List files in dist for debugging
-        run: ls -R dist
+        run: ls -R dist || echo "dist not found"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
