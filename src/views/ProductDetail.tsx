@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getProductByHandle, products } from "@/data/products";
 import { useCart } from "@/store/cart";
+import Navbar from "@/components/Navbar";
 
 const currency = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -10,20 +11,22 @@ const currency = new Intl.NumberFormat("en-US", {
 });
 
 const ProductDetail = () => {
-  const { handle } = useParams<"handle">();
+  const { handle } = useParams();
   const product = handle ? getProductByHandle(handle) : undefined;
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedVariant, setSelectedVariant] = useState(product?.variants[0]?.id ?? "");
-  const addItem = useCart((state) => state.addItem);
+  const [added, setAdded] = useState(false);
+  const addItem = useCart((s) => s.addItem);
 
   const related = useMemo(
     () => products.filter((item) => item.id !== product?.id).slice(0, 3),
-    [product?.id],
+    [product?.id]
   );
 
   if (!product) {
     return (
       <div className="min-h-screen bg-[#f5f5f7] px-6 pb-20 pt-28 md:px-12">
+        <Navbar />
         <div className="mx-auto max-w-2xl rounded-3xl bg-white p-8 text-center shadow-sm">
           <h1 className="text-3xl font-semibold tracking-tight">Product not found</h1>
           <p className="mt-3 text-waymaker-dark/65">The product you are looking for is unavailable.</p>
@@ -38,10 +41,24 @@ const ProductDetail = () => {
     );
   }
 
-  const activeVariant = product.variants.find((variant) => variant.id === selectedVariant) ?? product.variants[0];
+  const activeVariant = product.variants.find((v) => v.id === selectedVariant) ?? product.variants[0];
+
+  const handleAddToBag = () => {
+    addItem({
+      id: `${product.id}-${activeVariant.id}`,
+      productId: product.id,
+      name: product.name,
+      image: product.images[0],
+      variant: activeVariant.label,
+      price: activeVariant.price,
+    });
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1500);
+  };
 
   return (
     <div className="min-h-screen bg-[#f5f5f7] px-6 pb-20 pt-28 md:px-12">
+      <Navbar />
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-5">
           <div className="lg:col-span-3">
@@ -71,6 +88,9 @@ const ProductDetail = () => {
             <p className="text-xs uppercase tracking-[0.3em] text-waymaker-dark/60">{product.category}</p>
             <h1 className="mt-3 text-4xl font-semibold tracking-tight">{product.name}</h1>
             <p className="mt-4 text-2xl font-semibold">{currency.format(activeVariant.price)}</p>
+            {product.compareAtPrice && (
+              <span className="ml-2 text-sm text-waymaker-dark/40 line-through">{currency.format(product.compareAtPrice)}</span>
+            )}
             <p className="mt-4 text-sm leading-relaxed text-waymaker-dark/70">{product.description}</p>
 
             <div className="mt-7">
@@ -94,19 +114,10 @@ const ProductDetail = () => {
             </div>
 
             <button
-              onClick={() =>
-                addItem({
-                  id: `${product.id}-${activeVariant.id}`,
-                  productId: product.id,
-                  name: product.name,
-                  image: product.images[0],
-                  variant: activeVariant.label,
-                  price: activeVariant.price,
-                })
-              }
+              onClick={handleAddToBag}
               className="mt-8 w-full rounded-full bg-waymaker-dark px-6 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-white"
             >
-              Add to Bag - {currency.format(activeVariant.price)}
+              {added ? "Added ✓" : `Add to Bag — ${currency.format(activeVariant.price)}`}
             </button>
             <Link
               to="/cart"
@@ -117,7 +128,7 @@ const ProductDetail = () => {
 
             <ul className="mt-8 space-y-2 text-sm text-waymaker-dark/70">
               {product.details.map((detail) => (
-                <li key={detail}>- {detail}</li>
+                <li key={detail}>— {detail}</li>
               ))}
             </ul>
           </div>
@@ -127,8 +138,8 @@ const ProductDetail = () => {
           <h2 className="text-2xl font-semibold tracking-tight">Related Products</h2>
           <div className="mt-6 grid gap-6 md:grid-cols-3">
             {related.map((item) => (
-              <Link key={item.id} to={`/shop/${item.handle}`} className="rounded-3xl bg-white p-4 shadow-sm">
-                <img src={item.images[0]} alt={item.name} className="aspect-square w-full rounded-2xl object-cover" />
+              <Link key={item.id} to={`/shop/${item.handle}`} className="rounded-3xl bg-white p-4 shadow-sm group">
+                <img src={item.images[0]} alt={item.name} className="aspect-square w-full rounded-2xl object-cover transition-transform duration-500 group-hover:scale-105" />
                 <p className="mt-3 text-sm text-waymaker-dark/60">{item.category}</p>
                 <p className="text-lg font-semibold">{item.name}</p>
                 <p className="text-sm font-medium">{currency.format(item.price)}</p>

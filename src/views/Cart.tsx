@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { getCartSubtotal, useCart } from "@/store/cart";
+import Navbar from "@/components/Navbar";
+import { Trash2 } from "lucide-react";
 
 const currency = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -8,9 +10,9 @@ const currency = new Intl.NumberFormat("en-US", {
 });
 
 const Cart = () => {
-  const items = useCart((state) => state.items);
-  const removeItem = useCart((state) => state.removeItem);
-  const updateQuantity = useCart((state) => state.updateQuantity);
+  const items = useCart((s) => s.items);
+  const removeItem = useCart((s) => s.removeItem);
+  const updateQuantity = useCart((s) => s.updateQuantity);
 
   const subtotal = getCartSubtotal(items);
   const shipping = subtotal > 100 || subtotal === 0 ? 0 : 12;
@@ -18,6 +20,7 @@ const Cart = () => {
 
   return (
     <div className="min-h-screen bg-[#f5f5f7] px-6 pb-20 pt-28 md:px-12">
+      <Navbar />
       <div className="mx-auto max-w-6xl">
         <h1 className="text-4xl font-semibold tracking-tight">Your Bag</h1>
         <p className="mt-2 text-sm text-waymaker-dark/60">Free shipping on orders over $100.</p>
@@ -44,23 +47,23 @@ const Cart = () => {
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                        className="h-10 w-10 rounded-full border border-black/20"
+                        className="h-10 w-10 rounded-full border border-black/20 flex items-center justify-center"
                       >
-                        -
+                        −
                       </button>
                       <span className="min-w-8 text-center">{item.quantity}</span>
                       <button
                         onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                        className="h-10 w-10 rounded-full border border-black/20"
+                        className="h-10 w-10 rounded-full border border-black/20 flex items-center justify-center"
                       >
                         +
                       </button>
                     </div>
                     <button
                       onClick={() => removeItem(item.id)}
-                      className="text-sm text-waymaker-dark/60 underline underline-offset-4"
+                      className="text-sm text-waymaker-dark/60 hover:text-red-500 transition-colors flex items-center gap-1"
                     >
-                      Remove
+                      <Trash2 className="w-4 h-4" /> Remove
                     </button>
                   </div>
                 </div>
