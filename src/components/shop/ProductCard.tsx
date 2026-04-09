@@ -135,7 +135,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                   </button>
 
                   <Link
-                    href="/cart"
+                    to="/cart"
                     className="w-full inline-flex items-center justify-center rounded-full border border-waymaker-dark/20 px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-waymaker-dark"
                   >
                     View Bag

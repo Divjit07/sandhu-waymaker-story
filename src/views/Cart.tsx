@@ -85,7 +85,7 @@ const Cart = () => {
               </div>
             </div>
             <Link
-              href="/checkout"
+              to="/checkout"
               className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-waymaker-dark px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-white"
             >
               Checkout

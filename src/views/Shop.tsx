@@ -93,7 +93,7 @@ const Shop = () => {
               Every item is verified, limited, and crafted to preserve the Waymaker story.
             </h2>
             <Link
-              href="/cart"
+              to="/cart"
               className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-waymaker-dark"
             >
               Go to Bag
