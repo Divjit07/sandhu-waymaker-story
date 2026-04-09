@@ -49,7 +49,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       className="group"
     >
       <div className="relative aspect-square overflow-hidden rounded-3xl bg-white/70 shadow-md">
-        <Link href={`/shop/${product.handle}`} className="absolute inset-0">
+        <Link to={`/shop/${product.handle}`} className="absolute inset-0">
           <img
             src={product.images[0]}
             alt={product.name}

@@ -67,7 +67,7 @@ const Checkout = () => {
               <span>{currency.format(total)}</span>
             </div>
           </div>
-          <Link href="/cart" className="mt-5 inline-flex text-sm underline underline-offset-4">
+          <Link to="/cart" className="mt-5 inline-flex text-sm underline underline-offset-4">
             Edit bag
           </Link>
         </aside>

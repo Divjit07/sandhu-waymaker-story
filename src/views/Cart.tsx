@@ -27,7 +27,7 @@ const Cart = () => {
             {items.length === 0 ? (
               <div className="rounded-3xl bg-white p-8 shadow-sm">
                 <p className="text-waymaker-dark/70">Your bag is currently empty.</p>
-                <Link href="/shop" className="mt-4 inline-flex rounded-full bg-waymaker-dark px-5 py-3 text-sm text-white">
+                <Link to="/shop" className="mt-4 inline-flex rounded-full bg-waymaker-dark px-5 py-3 text-sm text-white">
                   Continue Shopping
                 </Link>
               </div>
