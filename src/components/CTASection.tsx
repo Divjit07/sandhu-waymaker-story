@@ -19,17 +19,17 @@ const CTASection = ({ progress }: Props) => {
         className="text-center"
         style={{ transform: `translateY(${translateY}px)` }}
       >
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-[0.2em] uppercase text-waymaker-dark mb-4">
-          Listen Now.
+        <h2 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter uppercase text-waymaker-accent mb-2 drop-shadow-[0_0_30px_rgba(255,77,77,0.3)]">
+          Listen Now
         </h2>
-        <p className="text-sm tracking-[0.3em] uppercase text-waymaker-dark/50 mb-10">
+        <p className="text-sm tracking-[0.5em] uppercase text-waymaker-dark font-bold mb-10">
           Stream the latest hits
         </p>
-        <div className="flex items-center gap-4 justify-center pointer-events-auto">
-          <button className="px-8 py-3 text-xs tracking-[0.2em] uppercase rounded-full bg-waymaker-dark text-white hover:bg-waymaker-dark/90 transition-all duration-300">
+        <div className="flex flex-col md:flex-row items-center gap-4 justify-center pointer-events-auto transform md:translate-x-12">
+          <button className="px-10 py-5 text-[10px] font-black tracking-[0.3em] uppercase rounded-full bg-waymaker-dark text-white hover:bg-black hover:scale-110 transition-all duration-300 shadow-2xl">
             Listen on Spotify
           </button>
-          <button className="px-8 py-3 text-xs tracking-[0.2em] uppercase rounded-full border border-waymaker-dark/30 text-waymaker-dark hover:border-waymaker-dark/60 transition-all duration-300">
+          <button className="px-10 py-5 text-[10px] font-black tracking-[0.3em] uppercase rounded-full bg-waymaker-accent text-white hover:bg-[#e64444] hover:scale-110 transition-all duration-300 shadow-2xl shadow-waymaker-accent/30">
             View Tour Dates
           </button>
         </div>

@@ -39,13 +39,13 @@ const Navbar = () => {
         WAYMAKER
       </Link>
 
-      <div className="hidden md:flex items-center gap-8">
+      <div className="hidden md:flex items-center gap-12">
         {navLinks.map((link) =>
           link.isRoute ? (
             <Link
               key={link.label}
               to={link.href}
-              className="text-xs tracking-[0.2em] uppercase text-waymaker-dark/70 hover:text-waymaker-dark transition-colors duration-300"
+              className="text-sm tracking-[0.3em] uppercase font-bold text-waymaker-dark hover:text-waymaker-accent transition-all duration-300 hover:scale-110"
             >
               {link.label}
             </Link>
@@ -53,7 +53,7 @@ const Navbar = () => {
             <a
               key={link.label}
               href={isHome ? link.href : `/${link.href}`}
-              className="text-xs tracking-[0.2em] uppercase text-waymaker-dark/70 hover:text-waymaker-dark transition-colors duration-300"
+              className="text-sm tracking-[0.3em] uppercase font-bold text-waymaker-dark hover:text-waymaker-accent transition-all duration-300 hover:scale-110"
             >
               {link.label}
             </a>

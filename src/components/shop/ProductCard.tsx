@@ -40,19 +40,26 @@ const ProductCard = ({ product }: ProductCardProps) => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="group"
     >
-      <div className="relative aspect-square overflow-hidden rounded-3xl bg-white/70 shadow-md">
+      <div className="relative aspect-square overflow-hidden rounded-[32px] bg-white/5 border border-white/10 shadow-2xl backdrop-blur-sm">
         <Link to={`/shop/${product.handle}`} className="absolute inset-0">
           <img
             src={product.images[0]}
             alt={product.name}
-            className="absolute inset-0 h-full w-full object-cover transition-opacity duration-500 group-hover:opacity-0"
+            className="absolute inset-0 h-full w-full object-cover grayscale-[0.2] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110"
           />
           <img
             src={product.images[1] ?? product.images[0]}
             alt={`${product.name} alternate view`}
-            className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100"
           />
         </Link>
+
+        {/* Dynamic Badge */}
+        <div className="absolute top-4 left-4 z-20">
+           <span className="bg-waymaker-accent text-[8px] font-black tracking-widest text-white px-3 py-1 rounded-full uppercase">
+             {product.category === "Apparel" ? "Limited Drop" : "Authentic"}
+           </span>
+        </div>
 
         <button
           type="button"
@@ -69,18 +76,18 @@ const ProductCard = ({ product }: ProductCardProps) => {
             setAdded(true);
             setTimeout(() => setAdded(false), 1500);
           }}
-          className="absolute inset-x-4 bottom-4 rounded-full bg-white/85 py-3 text-center text-sm font-semibold tracking-wide opacity-0 backdrop-blur-md transition-opacity duration-300 group-hover:opacity-100"
+          className="absolute inset-x-4 bottom-4 rounded-full bg-white py-4 text-center text-[10px] font-black tracking-[0.2em] uppercase text-black opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 shadow-[0_15px_30px_rgba(0,0,0,0.3)]"
         >
-          {added ? "Added ✓" : `Add to Bag — ${currency.format(activeVariant.price)}`}
+          {added ? "Added to Bag ✓" : `Add - ${currency.format(activeVariant.price)}`}
         </button>
       </div>
 
-      <div className="mt-4 flex items-start justify-between gap-3">
+      <div className="mt-6 flex items-start justify-between gap-3 px-2">
         <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-waymaker-dark/50">{product.category}</p>
-          <h3 className="mt-1 text-lg font-semibold text-waymaker-dark">{product.name}</h3>
+          <p className="text-[10px] uppercase tracking-[0.3em] text-white/30 font-bold">{product.category}</p>
+          <h3 className="mt-2 text-xl font-bold text-white tracking-tight group-hover:text-waymaker-accent transition-colors">{product.name}</h3>
         </div>
-        <p className="text-base font-semibold text-waymaker-dark">{currency.format(product.price)}</p>
+        <p className="text-lg font-black text-waymaker-accent mt-6 italic">{currency.format(product.price)}</p>
       </div>
     </motion.div>
   );

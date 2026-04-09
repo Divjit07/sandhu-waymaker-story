@@ -20,77 +20,100 @@ const Shop = () => {
   }, [category, sort]);
 
   return (
-    <div className="relative min-h-screen bg-[#f5f5f7] text-waymaker-dark pt-28 pb-24 px-6 md:px-12">
+    <div className="relative min-h-screen bg-[#0a0a0a] text-white pt-28 pb-24 overflow-hidden">
       <Navbar />
-      <div className="max-w-7xl mx-auto">
+      
+      {/* Background Glow */}
+      <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-waymaker-accent/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
           className="text-center mb-16 md:mb-24"
         >
-          <p className="text-xs tracking-[0.4em] uppercase text-waymaker-dark/60 mb-4">Collection</p>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight uppercase">The Shop</h1>
-          <p className="mt-5 text-base md:text-lg text-waymaker-dark/65 max-w-2xl mx-auto">
-            Limited edition pieces, engineered for movement and crafted for statement wear.
+          <p className="text-xs tracking-[0.6em] uppercase text-waymaker-accent mb-4 font-bold">Limited Collections</p>
+          <h1 className="text-6xl md:text-9xl font-black tracking-tighter uppercase leading-none">The Vault</h1>
+          <p className="mt-8 text-lg text-white/40 max-w-2xl mx-auto font-light leading-relaxed">
+            Engineered for movement. Crafted for statement wear. Every piece is a limited run, never to be restocked.
           </p>
         </motion.div>
+      </div>
 
-        <div className="rounded-3xl border border-black/10 bg-white/70 p-4 md:p-6 backdrop-blur-md shadow-sm">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div className="flex flex-wrap gap-2">
-              {["All", "Apparel", "Accessories", "Collectibles"].map((value) => (
-                <button
-                  key={value}
-                  onClick={() => setCategory(value)}
-                  className={`rounded-full px-4 py-2 text-sm transition-colors ${
-                    category === value
-                      ? "bg-waymaker-dark text-white"
-                      : "bg-white text-waymaker-dark hover:bg-waymaker-dark/5"
-                  }`}
-                >
-                  {value}
-                </button>
-              ))}
-            </div>
-            <select
-              value={sort}
-              onChange={(e) => setSort(e.target.value as SortMode)}
-              className="w-full md:w-[220px] rounded-full border border-black/15 bg-white px-4 py-2 text-sm text-waymaker-dark outline-none"
-            >
-              <option value="featured">Sort: Featured</option>
-              <option value="price-asc">Price: Low to High</option>
-              <option value="price-desc">Price: High to Low</option>
-              <option value="newest">Newest</option>
-            </select>
-          </div>
+      {/* Marquee for Urgency - EDGE TO EDGE */}
+      <div className="mb-12 border-y border-white/10 py-6 overflow-hidden flex whitespace-nowrap bg-white/[0.02]">
+         <motion.div 
+           animate={{ x: [0, -1000] }}
+           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+           className="flex gap-24 text-sm font-black tracking-[0.5em] uppercase text-waymaker-accent"
+         >
+            {Array(10).fill("Limited Quantities Available — Worldwide Shipping — Authentic Waymaker Goods").map((t, i) => (
+              <span key={i}>{t}</span>
+            ))}
+         </motion.div>
+      </div>
 
-          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+
+
+
+        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between mb-12">
+          <div className="flex flex-wrap gap-3">
+            {["All", "Apparel", "Accessories", "Collectibles"].map((value) => (
+              <button
+                key={value}
+                onClick={() => setCategory(value)}
+                className={`rounded-full px-6 py-2 text-xs tracking-widest uppercase transition-all duration-300 border ${
+                  category === value
+                    ? "bg-waymaker-accent border-waymaker-accent text-white shadow-[0_0_20px_rgba(255,77,77,0.3)]"
+                    : "bg-white/5 border-white/10 text-white/60 hover:border-white/30"
+                }`}
+              >
+                {value}
+              </button>
             ))}
           </div>
+          <select
+            value={sort}
+            onChange={(e) => setSort(e.target.value as SortMode)}
+            className="w-full md:w-[240px] rounded-full border border-white/10 bg-white/5 px-6 py-3 text-xs tracking-widest uppercase text-white outline-none focus:border-waymaker-accent transition-all"
+          >
+            <option value="featured" className="bg-[#111]">Sort: Featured</option>
+            <option value="price-asc" className="bg-[#111]">Price: Low to High</option>
+            <option value="price-desc" className="bg-[#111]">Price: High to Low</option>
+            <option value="newest" className="bg-[#111]">Newest Release</option>
+          </select>
         </div>
 
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+          {filteredProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+
+        {/* Bottom Banner */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-14 rounded-3xl bg-waymaker-dark p-8 text-white md:p-12"
+          className="mt-24 rounded-[40px] bg-gradient-to-br from-waymaker-accent to-[#800000] p-12 text-white relative overflow-hidden"
         >
-          <p className="text-xs uppercase tracking-[0.35em] text-white/60">Authenticity Promise</p>
-          <div className="mt-4 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <h2 className="text-3xl md:text-4xl font-semibold max-w-3xl">
-              Every item is verified, limited, and crafted to preserve the Waymaker story.
-            </h2>
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+            <div className="max-w-xl">
+              <p className="text-xs uppercase tracking-[0.5em] text-white/70 mb-4 font-bold">Authenticity Promise</p>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase leading-none">
+                Every PROJECT is a Statement.
+              </h2>
+            </div>
             <Link
               to="/cart"
-              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-waymaker-dark"
+              className="group whitespace-nowrap inline-flex items-center justify-center rounded-full bg-white px-10 py-5 text-sm font-black tracking-widest uppercase text-black hover:scale-110 transition-transform shadow-2xl"
             >
-              Go to Bag
+              Checkout Bag
             </Link>
           </div>
+          <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-black/10 rounded-full blur-3xl" />
         </motion.div>
       </div>
     </div>
