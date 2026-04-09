@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useMemo, useState } from "react";
 import ProductCard from "@/components/shop/ProductCard";
 import { products } from "@/data/products";
+import Navbar from "@/components/Navbar";
 
 type SortMode = "featured" | "price-asc" | "price-desc" | "newest";
 
@@ -11,21 +12,16 @@ const Shop = () => {
   const [sort, setSort] = useState<SortMode>("featured");
 
   const filteredProducts = useMemo(() => {
-    const base = category === "All" ? products : products.filter((product) => product.category === category);
-    if (sort === "price-asc") {
-      return [...base].sort((a, b) => a.price - b.price);
-    }
-    if (sort === "price-desc") {
-      return [...base].sort((a, b) => b.price - a.price);
-    }
-    if (sort === "newest") {
-      return [...base].reverse();
-    }
+    const base = category === "All" ? products : products.filter((p) => p.category === category);
+    if (sort === "price-asc") return [...base].sort((a, b) => a.price - b.price);
+    if (sort === "price-desc") return [...base].sort((a, b) => b.price - a.price);
+    if (sort === "newest") return [...base].reverse();
     return base;
   }, [category, sort]);
 
   return (
     <div className="relative min-h-screen bg-[#f5f5f7] text-waymaker-dark pt-28 pb-24 px-6 md:px-12">
+      <Navbar />
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -34,12 +30,8 @@ const Shop = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-16 md:mb-24"
         >
-          <p className="text-xs tracking-[0.4em] uppercase text-waymaker-dark/60 mb-4">
-            Collection
-          </p>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight uppercase">
-            The Shop
-          </h1>
+          <p className="text-xs tracking-[0.4em] uppercase text-waymaker-dark/60 mb-4">Collection</p>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight uppercase">The Shop</h1>
           <p className="mt-5 text-base md:text-lg text-waymaker-dark/65 max-w-2xl mx-auto">
             Limited edition pieces, engineered for movement and crafted for statement wear.
           </p>
@@ -64,7 +56,7 @@ const Shop = () => {
             </div>
             <select
               value={sort}
-              onChange={(event) => setSort(event.target.value as SortMode)}
+              onChange={(e) => setSort(e.target.value as SortMode)}
               className="w-full md:w-[220px] rounded-full border border-black/15 bg-white px-4 py-2 text-sm text-waymaker-dark outline-none"
             >
               <option value="featured">Sort: Featured</option>
