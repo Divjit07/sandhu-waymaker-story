@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   // Set the base path for GitHub Pages or subfolder deployment
-  base: "/sandhu-waymaker-story/",
+  base: "/",
   server: {
     host: "::",
     port: 8080,
