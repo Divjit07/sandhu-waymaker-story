@@ -1,8 +1,5 @@
-"use client";
-
 import { useMemo, useState } from "react";
-import Link from "next/link";
-import { useParams } from "next/navigation";
+import { Link, useParams } from "react-router-dom";
 import { getProductByHandle, products } from "@/data/products";
 import { useCart } from "@/store/cart";
 

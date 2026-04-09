@@ -1,7 +1,5 @@
-"use client";
-
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { useMemo, useState } from "react";
 import ProductCard from "@/components/shop/ProductCard";
 import { products } from "@/data/products";

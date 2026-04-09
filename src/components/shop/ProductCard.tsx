@@ -1,8 +1,6 @@
-"use client";
-
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import type { ProductRecord } from "@/data/products";
 import { useCart } from "@/store/cart";
 import {
