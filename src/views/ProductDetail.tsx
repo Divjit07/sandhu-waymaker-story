@@ -10,8 +10,7 @@ const currency = new Intl.NumberFormat("en-US", {
 });
 
 const ProductDetail = () => {
-  const params = useParams<{ handle: string }>();
-  const handle = typeof params?.handle === "string" ? params.handle : "";
+  const { handle } = useParams<"handle">();
   const product = handle ? getProductByHandle(handle) : undefined;
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedVariant, setSelectedVariant] = useState(product?.variants[0]?.id ?? "");
