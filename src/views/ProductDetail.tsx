@@ -1,8 +1,5 @@
-"use client";
-
 import { useMemo, useState } from "react";
-import Link from "next/link";
-import { useParams } from "next/navigation";
+import { Link, useParams } from "react-router-dom";
 import { getProductByHandle, products } from "@/data/products";
 import { useCart } from "@/store/cart";
 
@@ -13,8 +10,7 @@ const currency = new Intl.NumberFormat("en-US", {
 });
 
 const ProductDetail = () => {
-  const params = useParams<{ handle: string }>();
-  const handle = typeof params?.handle === "string" ? params.handle : "";
+  const { handle } = useParams<"handle">();
   const product = handle ? getProductByHandle(handle) : undefined;
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedVariant, setSelectedVariant] = useState(product?.variants[0]?.id ?? "");
@@ -32,7 +28,7 @@ const ProductDetail = () => {
           <h1 className="text-3xl font-semibold tracking-tight">Product not found</h1>
           <p className="mt-3 text-waymaker-dark/65">The product you are looking for is unavailable.</p>
           <Link
-            href="/shop"
+            to="/shop"
             className="mt-6 inline-flex items-center justify-center rounded-full bg-waymaker-dark px-6 py-3 text-sm font-semibold text-white"
           >
             Back to Shop
@@ -113,7 +109,7 @@ const ProductDetail = () => {
               Add to Bag - {currency.format(activeVariant.price)}
             </button>
             <Link
-              href="/cart"
+              to="/cart"
               className="mt-3 inline-flex w-full items-center justify-center rounded-full border border-waymaker-dark/20 px-6 py-4 text-sm font-semibold uppercase tracking-[0.2em]"
             >
               View Bag
@@ -131,7 +127,7 @@ const ProductDetail = () => {
           <h2 className="text-2xl font-semibold tracking-tight">Related Products</h2>
           <div className="mt-6 grid gap-6 md:grid-cols-3">
             {related.map((item) => (
-              <Link key={item.id} href={`/shop/${item.handle}`} className="rounded-3xl bg-white p-4 shadow-sm">
+              <Link key={item.id} to={`/shop/${item.handle}`} className="rounded-3xl bg-white p-4 shadow-sm">
                 <img src={item.images[0]} alt={item.name} className="aspect-square w-full rounded-2xl object-cover" />
                 <p className="mt-3 text-sm text-waymaker-dark/60">{item.category}</p>
                 <p className="text-lg font-semibold">{item.name}</p>

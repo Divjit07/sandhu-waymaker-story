@@ -1,7 +1,5 @@
-"use client";
-
 import { useMemo } from "react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { getCartSubtotal, useCart } from "@/store/cart";
 
 const currency = new Intl.NumberFormat("en-US", {
@@ -69,7 +67,7 @@ const Checkout = () => {
               <span>{currency.format(total)}</span>
             </div>
           </div>
-          <Link href="/cart" className="mt-5 inline-flex text-sm underline underline-offset-4">
+          <Link to="/cart" className="mt-5 inline-flex text-sm underline underline-offset-4">
             Edit bag
           </Link>
         </aside>

@@ -1,8 +1,6 @@
-"use client";
-
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import type { ProductRecord } from "@/data/products";
 import { useCart } from "@/store/cart";
 import {
@@ -51,7 +49,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       className="group"
     >
       <div className="relative aspect-square overflow-hidden rounded-3xl bg-white/70 shadow-md">
-        <Link href={`/shop/${product.handle}`} className="absolute inset-0">
+        <Link to={`/shop/${product.handle}`} className="absolute inset-0">
           <img
             src={product.images[0]}
             alt={product.name}
@@ -137,7 +135,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                   </button>
 
                   <Link
-                    href="/cart"
+                    to="/cart"
                     className="w-full inline-flex items-center justify-center rounded-full border border-waymaker-dark/20 px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-waymaker-dark"
                   >
                     View Bag

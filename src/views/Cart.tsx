@@ -1,6 +1,4 @@
-"use client";
-
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { getCartSubtotal, useCart } from "@/store/cart";
 
 const currency = new Intl.NumberFormat("en-US", {
@@ -29,7 +27,7 @@ const Cart = () => {
             {items.length === 0 ? (
               <div className="rounded-3xl bg-white p-8 shadow-sm">
                 <p className="text-waymaker-dark/70">Your bag is currently empty.</p>
-                <Link href="/shop" className="mt-4 inline-flex rounded-full bg-waymaker-dark px-5 py-3 text-sm text-white">
+                <Link to="/shop" className="mt-4 inline-flex rounded-full bg-waymaker-dark px-5 py-3 text-sm text-white">
                   Continue Shopping
                 </Link>
               </div>
@@ -87,7 +85,7 @@ const Cart = () => {
               </div>
             </div>
             <Link
-              href="/checkout"
+              to="/checkout"
               className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-waymaker-dark px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-white"
             >
               Checkout
