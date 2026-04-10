@@ -58,7 +58,7 @@ export const products: ProductRecord[] = [
     stock: 23,
     images: [
       "/images/waymaker_jeans_1775530369705.png",
-      "/images/Screenshot 2026-03-08 063154.png",
+      "/images/Screenshot_2026-03-08_063154.png",
     ],
     variants: [
       { id: "denim-30", label: "30", price: 145, inStock: true },
@@ -78,7 +78,7 @@ export const products: ProductRecord[] = [
     stock: 11,
     images: [
       "/images/waymaker_gloves_1775530491353.png",
-      "/images/Screenshot 2026-03-08 063522.png",
+      "/images/Screenshot_2026-03-08_063522.png",
     ],
     variants: [
       { id: "gloves-s", label: "S", price: 85, inStock: true },
@@ -98,7 +98,7 @@ export const products: ProductRecord[] = [
     stock: 8,
     images: [
       "/images/waymaker_watch_1775530506330.png",
-      "/images/Screenshot 2026-03-08 063344.png",
+      "/images/Screenshot_2026-03-08_063344.png",
     ],
     variants: [
       { id: "watch-black", label: "Black", price: 295, inStock: true },

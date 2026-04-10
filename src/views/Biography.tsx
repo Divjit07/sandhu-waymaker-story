@@ -185,7 +185,7 @@ const Biography = () => {
             >
               <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative shrink-0">
                 <img 
-                  src="/images/Screenshot 2026-03-08 063230.png" 
+                  src="/images/Screenshot_2026-03-08_063230.png" 
                   alt="Studio High Fashion" 
                   className="absolute inset-0 w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-1000"
                 />

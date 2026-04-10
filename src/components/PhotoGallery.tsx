@@ -2,20 +2,20 @@ import { motion } from "framer-motion";
 
 const topRow = [
   "/hdshots/Leveelgrph.jpg",
-  "/hdshots/black and white.jpg",
-  "/hdshots/bus stop uk.jpg",
+  "/hdshots/black_and_white.jpg",
+  "/hdshots/bus_stop_uk.jpg",
   "/hdshots/caroutside.jpg",
-  "/hdshots/dapper dan.jpg",
+  "/hdshots/dapper_dan.jpg",
   "/hdshots/fishing.jpg",
   "/hdshots/glassesleft2.jpg",
   "/hdshots/glassesleftpose.jpg",
   "/hdshots/goodjacket.jpg",
   // Duplicate for seamless loop
   "/hdshots/Leveelgrph.jpg",
-  "/hdshots/black and white.jpg",
-  "/hdshots/bus stop uk.jpg",
+  "/hdshots/black_and_white.jpg",
+  "/hdshots/bus_stop_uk.jpg",
   "/hdshots/caroutside.jpg",
-  "/hdshots/dapper dan.jpg",
+  "/hdshots/dapper_dan.jpg",
   "/hdshots/fishing.jpg",
   "/hdshots/glassesleft2.jpg",
   "/hdshots/glassesleftpose.jpg",
@@ -23,22 +23,22 @@ const topRow = [
 ];
 
 const bottomRow = [
-  "/hdshots/good pose.jpg",
+  "/hdshots/good_pose.jpg",
   "/hdshots/jordans.jpg",
   "/hdshots/levelgraph2.jpg",
-  "/hdshots/on road.jpg",
+  "/hdshots/on_road.jpg",
   "/hdshots/onewithJayb.jpg",
   "/hdshots/outside.jpg",
-  "/hdshots/sitting.jpg",
+  "/hdshots/fur_coat_dapper_dan.jpg",
   "/hdshots/tradition.jpg",
   // Duplicate for seamless loop
-  "/hdshots/good pose.jpg",
+  "/hdshots/good_pose.jpg",
   "/hdshots/jordans.jpg",
   "/hdshots/levelgraph2.jpg",
-  "/hdshots/on road.jpg",
+  "/hdshots/on_road.jpg",
   "/hdshots/onewithJayb.jpg",
   "/hdshots/outside.jpg",
-  "/hdshots/sitting.jpg",
+  "/hdshots/fur_coat_dapper_dan.jpg",
   "/hdshots/tradition.jpg",
 ];
 

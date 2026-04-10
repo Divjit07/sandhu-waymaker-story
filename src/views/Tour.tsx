@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 
 const tourDates = [
-  { date: "SEPT 02", city: "VANCOUVER", venue: "COMMODORE BALLROOM", status: "SOLD OUT", image: "/images/Screenshot 2026-03-08 063443.png" },
-  { date: "SEPT 03", city: "EDMONTON", venue: "MIDWAY MUSIC HALL", status: "SOLD OUT", image: "/images/Screenshot 2026-03-08 063522.png" },
-  { date: "SEPT 16", city: "TORONTO", venue: "HISTORY", status: "STADIUM TOUR", image: "/images/Screenshot 2026-03-08 063704.png" },
+  { date: "SEPT 02", city: "VANCOUVER", venue: "COMMODORE BALLROOM", status: "SOLD OUT", image: "/images/Screenshot_2026-03-08_063443.png" },
+  { date: "SEPT 03", city: "EDMONTON", venue: "MIDWAY MUSIC HALL", status: "SOLD OUT", image: "/images/Screenshot_2026-03-08_063522.png" },
+  { date: "SEPT 16", city: "TORONTO", venue: "HISTORY", status: "STADIUM TOUR", image: "/images/Screenshot_2026-03-08_063704.png" },
 ];
 
 const Tour = () => {

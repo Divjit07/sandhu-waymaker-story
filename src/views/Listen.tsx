@@ -12,12 +12,12 @@ const Listen = () => {
         className="absolute inset-0 flex"
       >
         <img 
-          src="/images/Screenshot 2026-03-08 063831.png" 
+          src="/images/Screenshot_2026-03-08_063831.png" 
           alt="Studio Depth" 
           className="w-1/2 h-full object-cover grayscale brightness-50"
         />
         <img 
-          src="/images/Screenshot 2026-03-08 063837.png" 
+          src="/images/Screenshot_2026-03-08_063837.png" 
           alt="Technical Flow" 
           className="w-1/2 h-full object-cover grayscale brightness-50 hidden md:block"
         />
