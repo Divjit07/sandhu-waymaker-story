@@ -47,6 +47,7 @@ const bentoItems = [
   { title: "The Finest", type: "Studio Album", format: "image", image: "/album_covers/Thefinest.jpg" },
 ];
 
+const HorizontalGallery = () => {
   return (
     <section className="relative h-screen text-white flex items-center overflow-hidden border-t border-white/10">
       <div className="w-full relative">
