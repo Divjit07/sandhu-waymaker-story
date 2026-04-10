@@ -47,17 +47,9 @@ const bentoItems = [
   { title: "The Finest", type: "Studio Album", format: "image", image: "/album_covers/Thefinest.jpg" },
 ];
 
-const HorizontalGallery = () => {
-  const targetRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-  });
-
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
-
   return (
-    <section ref={targetRef} className="relative h-[400vh] text-white">
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+    <section className="relative h-screen text-white flex items-center overflow-hidden border-t border-white/10">
+      <div className="w-full relative">
         {/* Massive background typography */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
           <h2 className="text-[25vw] font-black opacity-5 uppercase tracking-tighter whitespace-nowrap">
@@ -65,8 +57,13 @@ const HorizontalGallery = () => {
           </h2>
         </div>
 
-        <motion.div style={{ x }} className="flex gap-12 md:gap-32 px-12 md:px-24">
-          {studioAlbums.map((album, index) => (
+        <motion.div 
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="flex gap-12 md:gap-32 px-12 md:px-24 w-max"
+        >
+          {/* Double the array to create a seamless infinite loop */}
+          {[...studioAlbums, ...studioAlbums].map((album, index) => (
             <motion.div 
               key={index}
               className="group relative flex-shrink-0 w-[85vw] md:w-[700px]"
@@ -118,7 +115,7 @@ const HorizontalGallery = () => {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+          </motion.div>
       </div>
     </section>
   );
@@ -163,7 +160,8 @@ const BentoGrid = () => {
                   muted 
                   playsInline 
                   preload="auto"
-                  className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                  poster="/album_covers/Waymaker.jpg"
+                  className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110 grayscale-[0.3] group-hover:grayscale-0"
                 >
                   <source src={item.src} type="video/mp4" />
                 </video>

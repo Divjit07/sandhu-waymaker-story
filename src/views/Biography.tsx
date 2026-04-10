@@ -198,7 +198,8 @@ const Biography = () => {
             >
                <video 
                  src="/mp4videos/Sprint.mp4" 
-                 autoPlay loop muted playsInline 
+                 autoPlay loop muted playsInline preload="auto"
+                 poster="/album_covers/Waymaker.jpg"
                  className="absolute inset-0 w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-1000" 
                />
             </motion.div>
@@ -234,7 +235,7 @@ const Biography = () => {
              transition={{ duration: 1, delay: 0.2 }}
              className="md:col-span-4 w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative"
           >
-             <video autoPlay loop muted playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover">
+             <video autoPlay loop muted playsInline preload="auto" poster="/album_covers/Thefinest.jpg" className="absolute inset-0 w-full h-full object-cover">
                <source src="/mp4videos/ootd.mp4" type="video/mp4" />
              </video>
           </motion.div>
