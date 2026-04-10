@@ -5,46 +5,46 @@ const studioAlbums = [
   { 
     title: "Way Maker", 
     year: "2022", 
-    image: "/album covers/Waymaker.jpg",
+    image: "/album_covers/Waymaker.jpg",
     details: ["Studio Album", "14 Tracks", "Global Impact"]
   },
   { 
     title: "Naveezy", 
     year: "2023", 
-    image: "/album covers/Navezzy.jpg",
+    image: "/album_covers/Navezzy.jpg",
     details: ["The Evolution", "Chart Topping", "Majha Sound"]
   },
   { 
     title: "Relentless", 
     year: "2023", 
-    image: "/album covers/Relentless.jpg",
+    image: "/album_covers/Relentless.jpg",
     details: ["EP Release", "Experimental", "Soulful"]
   },
   { 
     title: "The Finest", 
     year: "2024", 
-    image: "/album covers/Thefinest.jpg",
+    image: "/album_covers/Thefinest.jpg",
     details: ["Billboard Canada", "High Fashion", "Lyrical Flow"]
   },
 ];
 
 const bentoItems = [
   { title: "Sprint", type: "Visual", format: "video", src: "/mp4videos/Sprint.mp4" },
-  { title: "Relentless", type: "EP", format: "image", image: "/album covers/Relentless.jpg" },
+  { title: "Relentless", type: "EP", format: "image", image: "/album_covers/Relentless.jpg" },
   { title: "Deewane", type: "Visual", format: "video", src: "/mp4videos/deewane.mp4" },
-  { title: "Paper Before Money", type: "EP", format: "image", image: "/album covers/Paperbeforemoney.jpg" },
-  { title: "Warriors Honour", type: "EP", format: "image", image: "/album covers/Warriorshonour.jpg" },
-  { title: "Warriors Honour II", type: "EP", format: "image", image: "/album covers/Warriorshonour2.jpg" },
+  { title: "Paper Before Money", type: "EP", format: "image", image: "/album_covers/Paperbeforemoney.jpg" },
+  { title: "Warriors Honour", type: "EP", format: "image", image: "/album_covers/Warriorshonour.jpg" },
+  { title: "Warriors Honour II", type: "EP", format: "image", image: "/album_covers/Warriorshonour2.jpg" },
   { title: "OOTD", type: "Visual", format: "video", src: "/mp4videos/ootd.mp4" },
-  { title: "Do Me A Favour", type: "Single", format: "image", image: "/album covers/Domeafavour.jpg" },
-  { title: "Hirni", type: "Single", format: "image", image: "/album covers/Hirni.jpg" },
+  { title: "Do Me A Favour", type: "Single", format: "image", image: "/album_covers/Domeafavour.jpg" },
+  { title: "Hirni", type: "Single", format: "image", image: "/album_covers/Hirni.jpg" },
   { title: "BTS", type: "Visual", format: "video", src: "/mp4videos/BTS.mp4" },
-  { title: "So Mean", type: "Single", format: "image", image: "/album covers/So mean.jpg" },
+  { title: "So Mean", type: "Single", format: "image", image: "/album_covers/somean.jpg" },
   { title: "Live Energy", type: "Visual", format: "video", src: "/mp4videos/Onstage.mp4" },
-  { title: "Sit Down Son", type: "Single", format: "image", image: "/album covers/sit down son.jpg" },
-  { title: "House Naviour", type: "Single", format: "image", image: "/album covers/House naviour.jpg" },
-  { title: "Way Maker", type: "Studio Album", format: "image", image: "/album covers/Waymaker.jpg" },
-  { title: "The Finest", type: "Studio Album", format: "image", image: "/album covers/Thefinest.jpg" },
+  { title: "Sit Down Son", type: "Single", format: "image", image: "/album_covers/sitdownson.jpg" },
+  { title: "House Naviour", type: "Single", format: "image", image: "/album_covers/housenaviour.jpg" },
+  { title: "Way Maker", type: "Studio Album", format: "image", image: "/album_covers/Waymaker.jpg" },
+  { title: "The Finest", type: "Studio Album", format: "image", image: "/album_covers/Thefinest.jpg" },
 ];
 
 const HorizontalGallery = () => {

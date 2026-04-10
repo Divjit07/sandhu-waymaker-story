@@ -47,7 +47,6 @@ const Index = () => {
           }}
         >
           <ScrollCanvas frameIndex={frameIndex} totalFrames={totalFrames} />
-          <LandingGrid />
           <div className="absolute inset-0" style={{ willChange: "opacity" }}>
             <HeroSection progress={progress} />
             <EngineeringSection progress={progress} />

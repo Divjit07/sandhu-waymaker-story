@@ -17,14 +17,14 @@ const EngineeringSection = ({ progress }: Props) => {
       style={{ opacity }}
     >
       <div
-        className="ml-8 md:ml-20 max-w-md"
+        className="ml-8 md:ml-20 max-w-md bg-black/60 backdrop-blur-xl p-6 md:p-8 rounded-3xl border border-white/10 shadow-2xl"
         style={{ transform: `translateX(${translateX}px)` }}
       >
         <p className="text-xs tracking-[0.4em] uppercase text-waymaker-accent mb-4">Biography</p>
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-waymaker-dark leading-tight mb-6">
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight mb-4 md:mb-6">
           Navaan Sandhu
         </h2>
-        <p className="text-sm md:text-base text-waymaker-dark/60 leading-relaxed max-w-sm">
+        <p className="text-sm md:text-base text-white/80 leading-relaxed max-w-sm">
           An Indian singer, rapper, and songwriter from Amritsar, Punjab. Known for his work in Punjabi music, his songs have charted on the UK Asian Music Chart and Official Charts Company.
         </p>
       </div>

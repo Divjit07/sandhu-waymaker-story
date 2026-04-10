@@ -19,11 +19,11 @@ const shockingFacts = [
 ];
 
 const callouts = [
-  { name: "Waymaker Chrono", price: "$800", top: "55%", left: "20%", anchorX: "30%", anchorY: "60%" },
-  { name: "Fur Editorial Coat", price: "$1,200", top: "25%", left: "25%", anchorX: "35%", anchorY: "30%" },
-  { name: "Dapper Dan Denim", price: "$450", top: "75%", left: "35%", anchorX: "40%", anchorY: "75%" },
-  { name: "Signature Gold Chain", price: "$350", top: "15%", left: "40%", anchorX: "45%", anchorY: "20%" },
-  { name: "Leather Moto Gloves", price: "$150", top: "45%", left: "15%", anchorX: "25%", anchorY: "50%" },
+  { name: "Waymaker Chrono", price: "$800", top: "55%", left: "5%", mt: "mt-12", ml: "ml-4", anchorX: "30%", anchorY: "60%" },
+  { name: "Fur Editorial Coat", price: "$1,200", top: "20%", left: "2%", mt: "-mt-16", ml: "ml-6", anchorX: "35%", anchorY: "30%" },
+  { name: "Dapper Dan Denim", price: "$450", top: "80%", left: "55%", mt: "mt-10", ml: "-ml-16", anchorX: "40%", anchorY: "75%" },
+  { name: "Signature Gold Chain", price: "$350", top: "8%", left: "50%", mt: "-mt-4", ml: "ml-8", anchorX: "45%", anchorY: "20%" },
+  { name: "Leather Moto Gloves", price: "$150", top: "40%", left: "60%", mt: "-mt-12", ml: "-ml-20", anchorX: "25%", anchorY: "50%" },
 ];
 
 const ProductCallout = ({ callout, active }: { callout: any, active: boolean }) => {
@@ -36,16 +36,16 @@ const ProductCallout = ({ callout, active }: { callout: any, active: boolean }) 
         className="absolute"
         style={{ top: callout.top, left: callout.left }}
       >
-        <div className="flex flex-col items-start translate-x-2 translate-y-2">
+        <div className={`flex flex-col items-start ${callout.mt} ${callout.ml}`}>
           <motion.div 
             initial={{ width: 0 }}
-            animate={{ width: active ? 120 : 0 }}
-            className="h-[2px] bg-white origin-left"
+            animate={{ width: active ? 60 : 0 }}
+            className="hidden md:block h-[2px] bg-white origin-left"
             style={{ transform: "rotate(-45deg)" }}
           />
-          <div className="ml-16 -mt-16 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-black/10 shadow-2xl scale-110">
-            <p className="text-[10px] uppercase tracking-[0.2em] text-black/40 font-bold">{callout.name}</p>
-            <p className="text-xl font-black text-black leading-none mt-1">{callout.price}</p>
+          <div className="bg-white/95 backdrop-blur-md p-3 md:p-4 rounded-xl border border-black/10 shadow-2xl md:scale-110">
+            <p className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-black/40 font-bold">{callout.name}</p>
+            <p className="text-lg md:text-xl font-black text-black leading-none mt-1">{callout.price}</p>
           </div>
         </div>
       </motion.div>
@@ -81,8 +81,7 @@ const FeatureSection = ({ progress }: Props) => {
       className="absolute inset-0 z-10 p-6 md:p-20"
       style={{ opacity }}
     >
-      {/* 1. Left Side Fact Flashcards */}
-      <div className="absolute left-6 md:left-20 top-1/2 -translate-y-1/2 max-w-sm drop-shadow-xl">
+      <div className="absolute left-6 md:left-20 top-1/2 -translate-y-1/2 max-w-sm drop-shadow-xl hidden md:block">
         <p className="text-xs tracking-[0.4em] uppercase text-white/40 mb-2">Artist Insights</p>
         <div className="h-32 flex items-center">
           <AnimatePresence mode="wait">
@@ -107,7 +106,7 @@ const FeatureSection = ({ progress }: Props) => {
       </div>
 
       {/* 3. Right Side Releases (Existing) */}
-      <div className="absolute right-6 md:right-20 top-1/2 -translate-y-1/2 max-w-md text-right drop-shadow-2xl">
+      <div className="absolute right-6 md:right-20 top-1/2 -translate-y-1/2 max-w-md text-right drop-shadow-2xl hidden lg:block">
         <p className="text-xs tracking-[0.4em] uppercase text-waymaker-accent mb-4 font-bold">Discography</p>
         <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white leading-tight mb-8">
           CHART-TOPPING
