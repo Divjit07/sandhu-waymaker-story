@@ -76,7 +76,7 @@ const PhotoGallery = () => {
             transition={{ duration: 0.8 }}
             className="aspect-[4/3] rounded-2xl overflow-hidden relative border border-white/10 shadow-2xl group"
           >
-            <img src="/hdshots/sidewalkforblankspace.jpg" alt="Sidewalk" className="absolute inset-0 w-full h-full object-cover grayscale-[0.4] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+            <img src="/hdshots/sidewalkforblankspace.jpg" alt="Sidewalk" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
           </motion.div>
 
@@ -102,7 +102,7 @@ const PhotoGallery = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="aspect-[4/3] rounded-2xl overflow-hidden relative border border-white/10 shadow-2xl group"
           >
-            <img src="/hdshots/childhoood.jpg" alt="Heritage" className="absolute inset-0 w-full h-full object-cover grayscale-[0.4] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+            <img src="/hdshots/childhoood.jpg" alt="Heritage" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700" />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
             <div className="absolute bottom-4 left-4 z-10">
               <p className="text-[10px] tracking-[0.4em] uppercase text-waymaker-accent font-bold">The Roots</p>
@@ -129,7 +129,7 @@ const PhotoGallery = () => {
                 <img 
                   src={src} 
                   alt="Navaan Sandhu Snapshot" 
-                  className="w-full h-full object-cover object-center grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-in-out"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-700 ease-in-out"
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
               </div>
@@ -154,7 +154,7 @@ const PhotoGallery = () => {
                 <img 
                   src={src} 
                   alt="Navaan Sandhu Snapshot" 
-                  className="w-full h-full object-cover object-center grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-in-out"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-700 ease-in-out"
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
               </div>

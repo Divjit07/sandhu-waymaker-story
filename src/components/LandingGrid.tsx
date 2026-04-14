@@ -7,22 +7,26 @@ import { useEffect, useRef } from "react";
  */
 const LandingGrid = () => {
   const glowRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let animationFrameId: number;
     
     // Hardware-accelerated mouse tracking
     const updateMousePosition = (e: MouseEvent) => {
-      if (!glowRef.current) return;
+      if (!glowRef.current || !containerRef.current) return;
       
       // Use requestAnimationFrame for perfectly locked 60fps updates
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
       
       animationFrameId = requestAnimationFrame(() => {
-        // Offset by half the width/height (400px) so the cursor is exactly in the center of the 800x800 glow element
-        if (glowRef.current) {
-          glowRef.current.style.transform = `translate3d(${e.clientX - 400}px, ${e.clientY - 400}px, 0)`;
-        }
+        if (!glowRef.current || !containerRef.current) return;
+        // Get the container's position relative to the viewport
+        const rect = containerRef.current.getBoundingClientRect();
+        // Calculate mouse position relative to the container, then offset by half the glow size (400px)
+        const x = e.clientX - rect.left - 400;
+        const y = e.clientY - rect.top - 400;
+        glowRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
       });
     };
 
@@ -34,7 +38,7 @@ const LandingGrid = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 z-[5] pointer-events-none mix-blend-difference overflow-hidden">
+    <div ref={containerRef} className="absolute inset-0 z-[5] pointer-events-none mix-blend-difference overflow-hidden">
       
       {/* 
         1. 60FPS Hardware-Accelerated Glow

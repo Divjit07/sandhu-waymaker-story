@@ -187,7 +187,7 @@ const Biography = () => {
                 <img 
                   src="/images/Screenshot_2026-03-08_063230.png" 
                   alt="Studio High Fashion" 
-                  className="absolute inset-0 w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-1000"
+                  className="absolute inset-0 w-full h-full object-cover object-top"
                 />
               </div>
             </motion.div>
@@ -200,7 +200,7 @@ const Biography = () => {
                  src="/mp4videos/Sprint.mp4" 
                  autoPlay loop muted playsInline preload="auto"
                  poster="/album_covers/Waymaker.jpg"
-                 className="absolute inset-0 w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-1000" 
+                 className="absolute inset-0 w-full h-full object-cover object-center" 
                />
             </motion.div>
           </div>

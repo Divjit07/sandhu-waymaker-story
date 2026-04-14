@@ -43,7 +43,7 @@ const Tour = () => {
             >
               {/* Hover Image Reveal */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none">
-                <img src={tour.image} alt="" className="w-full h-full object-cover grayscale scale-110 group-hover:scale-100 transition-transform duration-1000" />
+                <img src={tour.image} alt="" className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000" />
               </div>
 
               <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 z-20">

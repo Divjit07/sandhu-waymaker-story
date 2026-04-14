@@ -45,7 +45,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <img
             src={product.images[0]}
             alt={product.name}
-            className="absolute inset-0 h-full w-full object-cover grayscale-[0.2] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110"
+            className="absolute inset-0 h-full w-full object-cover transition-all duration-700 group-hover:scale-110"
           />
           <img
             src={product.images[1] ?? product.images[0]}

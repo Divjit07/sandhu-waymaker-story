@@ -97,7 +97,7 @@ const HorizontalGallery = () => {
                     <img 
                       src={album.image} 
                       alt={album.title} 
-                      className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700" 
+                      className="w-full h-full object-cover" 
                     />
                   </div>
                 </div>
@@ -162,7 +162,7 @@ const BentoGrid = () => {
                   playsInline 
                   preload="auto"
                   poster="/album_covers/Waymaker.jpg"
-                  className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110 grayscale-[0.3] group-hover:grayscale-0"
+                  className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                 >
                   <source src={item.src} type="video/mp4" />
                 </video>

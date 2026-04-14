@@ -14,12 +14,12 @@ const Listen = () => {
         <img 
           src="/images/Screenshot_2026-03-08_063831.png" 
           alt="Studio Depth" 
-          className="w-1/2 h-full object-cover grayscale brightness-50"
+          className="w-1/2 h-full object-cover brightness-50"
         />
         <img 
           src="/images/Screenshot_2026-03-08_063837.png" 
           alt="Technical Flow" 
-          className="w-1/2 h-full object-cover grayscale brightness-50 hidden md:block"
+          className="w-1/2 h-full object-cover brightness-50 hidden md:block"
         />
       </motion.div>
 
